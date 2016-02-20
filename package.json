@@ -19,6 +19,7 @@
   "dependencies": {
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.1",
-    "gulp-less": "^3.0.5"
+    "gulp-less": "^3.0.5",
+    "wrench": "^1.5.8"
   }
 }
