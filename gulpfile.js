@@ -12,3 +12,5 @@ wrench.readdirSyncRecursive('./tasks').filter(function(file) {
 }).map(function(file) {
   require('./tasks/' + file);
 });
+
+gulp.task('build',['less','uglify','auto']);
