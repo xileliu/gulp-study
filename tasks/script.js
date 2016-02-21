@@ -1,12 +1,14 @@
 var gulp = require('gulp'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    rename = require('gulp-rename');
 
-gulp.task('uglify',function () {
+
+
+gulp.task('concat',function () {
     gulp.src('public/js/*.js')
+    .pipe(concat('all.js'))
+    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest('./dist/js'))
-});
-
-gulp.task('auto',function () {
-    gulp.watch('public/js/*.js',[uglify]);
 });

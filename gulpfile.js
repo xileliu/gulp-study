@@ -13,4 +13,7 @@ wrench.readdirSyncRecursive('./tasks').filter(function(file) {
   require('./tasks/' + file);
 });
 
-gulp.task('build',['less','uglify','auto']);
+gulp.task('auto',function () {
+    gulp.watch('public/js/*.js',['concat']);
+});
+gulp.task('build',['less','concat','auto']);
