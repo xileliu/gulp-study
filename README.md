@@ -19,6 +19,20 @@ gulp-study
 ```bash
 npm install gulp 
 npm insatll wrench
+npm install browser-sync
+
+```
+####前端自动挂载
+package.json <br/>
+
+集体配置信息参考
+[https://www.browsersync.io/](http://www.golang.org/dl)
+```
+npm run dev ---自动挂载监听文件修改变化
+"scripts": {
+    "dev": "browser-sync start --server --files *.*"
+ }
+ 
 ```
 ###Example
 gulpfile.js
@@ -65,8 +79,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename');
-
-
 
 gulp.task('concat',function () {
     gulp.src('public/js/*.js')
