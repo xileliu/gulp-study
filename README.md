@@ -1,9 +1,26 @@
 # gulp-study
 项目的目录结构
+```
+public
+|--- css
+|    |--- index.less
+|--- js
+|    |--- index.js
+task
+|--- less.js
+|--- concat.js
+|--- script.js
+|
+gulpfile.js
+
+```
 gulp-study
-
-##gulp api
-
+#Installation
+```bash
+npm install gulp 
+npm insatll wrench
+```
+###Example
 gulpfile.js
 
 ```js
@@ -29,6 +46,38 @@ gulp.task('auto',function () {
 gulp.task('build',['less','concat','auto']);
 
 ```
+less.js
+```
+var gulp = require('gulp'),
+    less = require('gulp-less');
+
+gulp.task('less', function () {
+    gulp.src('public/css/index.less')
+    .pipe(less())
+    .pipe(gulp.dest('public/css'));
+});
+
+```
+
+####script.js
+```
+var gulp = require('gulp'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    rename = require('gulp-rename');
+
+
+
+gulp.task('concat',function () {
+    gulp.src('public/js/*.js')
+    .pipe(concat('all.js'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/js'))
+});
+
+```
+
 
 
 
